@@ -1,0 +1,19 @@
+name: Checks
+on:
+    pull_request:
+        branches:
+        - '*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+        run:
+          shell: bash
+
+    steps:
+        - name: Terraform format
+          run: terraform fmt -recursive --check . 
+
+        - name: Terraform validate
+          run: terraform validate
