@@ -1,0 +1,16 @@
+name: Deploy
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+        run:
+          shell: bash
+
+    steps:
+        - name: Deploy
+          run: terraform apply --var="domain_name=32418-random-static-website" -auto-approve
