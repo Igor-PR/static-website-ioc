@@ -12,5 +12,6 @@ jobs:
           shell: bash
 
     steps:
+        # This will fail as GH Actions does not have access to AWS
         - name: Deploy
           run: terraform apply --var="domain_name=32418-random-static-website" -auto-approve
